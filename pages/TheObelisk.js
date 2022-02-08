@@ -12,9 +12,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Head from 'next/head'
 import Image from 'next/image'
+import logoPic from '../public/obelisk.png'
 import styles from '../styles/Home.module.css'
 
-const pages = ['Story', 'Trade', 'FAQ'];
+const pages = [{text: 'Story', link: "/story"}, {text: 'Trade', link: "/trade"}, {text: 'FAQ', link: "/faq"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function TheObelisk() {
@@ -36,8 +37,8 @@ function TheObelisk() {
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
     };
-    return (
-  <AppBar position="static">
+    return (<div>
+      <AppBar position="static">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Typography
@@ -46,7 +47,7 @@ function TheObelisk() {
               component="div"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
             >
-              LOGO
+              TheObelisk
             </Typography>
   
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -79,13 +80,17 @@ function TheObelisk() {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                  <MenuItem key={page.text} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.text}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
             </Box>
-            <img src="/my-image.png" />
+            <Image
+              src={logoPic}
+              width={50}
+              height={50}
+            />
             <Typography
               variant="h6"
               noWrap
@@ -97,11 +102,12 @@ function TheObelisk() {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
                 <Button
-                  key={page}
+                  key={page.text}
+                  href={page.link}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
+                  {page.text}
                 </Button>
               ))}
             </Box>
@@ -138,6 +144,7 @@ function TheObelisk() {
           </Toolbar>
         </Container>
       </AppBar>
+    </div>
     )
 }
 
