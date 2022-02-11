@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Head from 'next/head'
 import Image from 'next/image'
 import logoPic from '../public/obelisk.png'
+import backgroundPic from '../public/obelisk.jpeg'
 import styles from '../styles/Home.module.css'
 
 const pages = [{text: 'Story', link: "/story"}, {text: 'Trade', link: "/trade"}, {text: 'FAQ', link: "/faq"}];
@@ -144,6 +145,11 @@ function TheObelisk() {
           </Toolbar>
         </Container>
       </AppBar>
+      <Image
+        src={backgroundPic}
+        width={1500}
+        height={1500}
+      />
     </div>
     )
 }
