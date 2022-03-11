@@ -1,4 +1,4 @@
-import TopBar from '../components/topBar'
+import TopBar from '../src/components/navBar'
 
 function Story() {
     return <div>

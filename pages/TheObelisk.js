@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image'
 import backgroundPic from '../public/obelisk.jpeg'
-import TopBar from '../components/topBar'
+import TopBar from '../src/components/topBar'
 
 const pages = [{text: 'Story', link: "/story"}, {text: 'Trade', link: "/trade"}, {text: 'FAQ', link: "/faq"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
